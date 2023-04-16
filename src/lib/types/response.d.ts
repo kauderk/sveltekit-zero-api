@@ -1,4 +1,4 @@
-interface DefaultResponse {
+export interface DefaultResponse {
 	status: number
 	body: Record<any, any>
 	headers: Record<any, any>
@@ -11,11 +11,15 @@ interface DefaultResponse {
 }
 
 /** Internal */
-type R<T extends Record<any, any> = Record<any, any>> = {
-	[K in keyof DefaultResponse]: K extends keyof T ? NonNullable<T[K]> : NonNullable<DefaultResponse[K]>
+export type R<T extends Record<any, any> = Record<any, any>> = {
+	[K in keyof DefaultResponse]: K extends keyof T
+		? NonNullable<T[K]>
+		: NonNullable<DefaultResponse[K]>
 }
 
-type NoBodyResponse<T> = Omit<R<T>, 'body'> & { body?: any }
-type BodyResponse<T> = R<T>
+export type NoBodyResponse<T extends Record<any, any> = Record<any, any>> =
+	Omit<R<T>, 'body'> & { body?: any }
+export type BodyResponse<T extends Record<any, any> = Record<any, any>> = R<T>
 
-type SvelteResponse<T extends Record<any, any> = any> = 'body' extends keyof T ? BodyResponse<T> : NoBodyResponse<T>
+export type SvelteResponse<T extends Record<any, any> = any> =
+	'body' extends keyof T ? BodyResponse<T> : NoBodyResponse<T>

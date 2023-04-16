@@ -1,8 +1,17 @@
+import type { API, APIInputs } from './zeroapi'
 // Promise<{ ok: () => T }>
-type APIResponse<T extends { [key: string]: (...args: any[]) => any }> = Promise<T>
+export type APIResponse<T extends { [key: string]: (...args: any[]) => any }> =
+	Promise<T>
 
-type Method = (requestEvent: API<any>) => Awaited<APIResponse<any>>
+export type Method = <G extends APIInputs>(
+	requestEvent: API<G>
+) => Awaited<APIResponse<any>>
 
-interface Endpoint {
+export type Monad = (...args: any[]) => (...args: any[]) => any
+
+export interface Endpoint {
 	[key: string]: Method
+}
+export interface EndpointMonad {
+	[key: string]: Monad
 }

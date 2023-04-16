@@ -1098,7 +1098,7 @@ packages:
     dev: true
 
   file:sveltekit-zero-api.tgz_bpfyswqgnuhxcur64jazwb3gma:
-    resolution: {integrity: sha512-fwKQa6NigBgiuYbfDGFL2r6IbhePye3zqNro3xoKv1GhUrVxE9WlMTQJnAdAd+TGu4CY1oTvVVLYeVavwEtjcA==, tarball: file:sveltekit-zero-api.tgz}
+    resolution: {integrity: sha512-zv4xwnFT958Lyz5XitmMd4LbAXxeaAqla85eVFl0xA7/8zmtGNL9sKh63fz16dSu9US0UDb2DHm5iQqKrioV8A==, tarball: file:sveltekit-zero-api.tgz}
     id: file:sveltekit-zero-api.tgz
     name: sveltekit-zero-api
     version: 0.12.1
